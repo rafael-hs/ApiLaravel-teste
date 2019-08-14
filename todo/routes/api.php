@@ -2,18 +2,8 @@
 
 use Illuminate\Http\Request;
 
-Route::get("tasks", function () {
-    $tasks = [
-        [
-            "id" => 1,
-            "nome" => "Estudar PHP 7",
-            "complete" => false
-        ], [
-            "id" => 2,
-            "nome" => "Estudar JavaScript",
-            "complete" => false
-        ]
-    ];
-
-    return $tasks;
-});
+Route::get("tasks","TasksController@index");
+Route::get("tasks/{task}","TasksController@show");
+Route::post("tasks","TasksController@store");
+Route::patch("tasks/{task}","TasksController@update");
+Route::delete("tasks/{task}","TasksController@destroy");
